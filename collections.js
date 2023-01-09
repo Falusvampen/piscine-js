@@ -107,12 +107,13 @@ function arrToObj(arr) {
 }
 
 function strToObj(str) {
-  const obj = {};
-  const arr = str.split('');
-  for (const [key, value] of arr) {
-    obj[key] = value;
-  }
-  return obj;
+//   const obj = {};
+//   const arr = str.split('');
+//   for (const [key, value] of arr) {
+//     obj[key] = value;
+//   }
+//   return obj;
+  return Object.fromEntries(str.split(''));
 }
 
 function superTypeOf(value) {
