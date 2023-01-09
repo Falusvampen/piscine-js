@@ -82,17 +82,26 @@ function mapToObj(map) {
 }
 
 function objToArr(obj) {
-  return Object.entries(obj);
+  return Object.entries(obj).map(([key, value]) => [key, value !== undefined ? value : null]);
 }
+
 
 function objToMap(obj) {
   return new Map(Object.entries(obj));
 }
 
+// function arrToObj(arr) {
+//   const obj = {};
+//   for (const [key, value] of arr) {
+//     obj[key] = value;
+//   }
+//   return obj;
+// }
+
 function arrToObj(arr) {
   const obj = {};
-  for (const [key, value] of arr) {
-    obj[key] = value;
+  for (const key in arr) {
+    obj[key] = arr[key];
   }
   return obj;
 }
