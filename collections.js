@@ -14,6 +14,41 @@
 // strToObj: from string to Object.
 // Finally, write a function named superTypeOf that unlike typeof returns a specific values for advanced types like Map and Set.
 
+// Alternative version
+// const arrToSet = arr => new Set(arr);
+// const arrToStr = arr => arr.join('');
+// const setToArr = set => [...set];
+// const setToStr = set => [...set].join('');
+// const strToArr = str => str.split('');
+// const strToSet = str => new Set(str.split(''));
+// const mapToObj = map => {
+//   const obj = {};
+//   for (const [key, value] of map) {
+//     obj[key] = value;
+//   }
+//   return obj;
+// };
+// const objToArr = obj => Object.entries(obj);
+// const objToMap = obj => new Map(Object.entries(obj));
+// const arrToObj = arr => {
+//   const obj = {};
+//   for (const [key, value] of arr) {
+//     obj[key] = value;
+//   }
+//   return obj;
+// };
+// const strToObj = str => {
+//   const obj = {};
+//   const arr = str.split('');
+//   for (const [key, value] of arr) {
+//     obj[key] = value;
+//   }
+//   return obj;
+// };
+// const superTypeOf = value =>
+//   value instanceof Map ? 'Map' : value instanceof Set ? 'Set' : typeof value;
+
+
 function arrToSet(arr) {
     return new Set(arr);
 }
