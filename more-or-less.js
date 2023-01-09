@@ -6,10 +6,10 @@
 // sub that takes 2 arguments and subtracts the second argument from the first.
 
 function more(int){
-    return int++
+    return int+1
 }
 function less(int){
-    return int--
+    return int-1
 }
 function add(x, y){
     return x+y
