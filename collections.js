@@ -70,7 +70,7 @@ const superTypeOf = value => {
   for (let key in instances) {
     if (value instanceof instances[key]) return key;
   }
-  let types = { string: 'string', number: 'number', Object: 'object'};
+  let types = { String: 'string', Number: 'number', Object: 'object'};
   for (let key in types) {
     if (typeof value === types[key]) return key;
   }
