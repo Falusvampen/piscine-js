@@ -27,7 +27,7 @@ function setToArr(set) {
 }
 
 function setToStr(set) {
-    return [...set].join(',');
+    return [...set].join('');
 }
 
 function strToArr(str) {
