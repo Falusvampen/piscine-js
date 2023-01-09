@@ -180,8 +180,15 @@ function strToObj(str) {
   }, {});
 }
 
+// function superTypeOf(value) {
+//   if (value instanceof Map) return 'Map';
+//   if (value instanceof Set) return 'Set';
+//   return typeof value;
+// }
+
 function superTypeOf(value) {
   if (value instanceof Map) return 'Map';
   if (value instanceof Set) return 'Set';
+  if (value instanceof Object) return 'Object';
   return typeof value;
 }
