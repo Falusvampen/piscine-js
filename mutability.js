@@ -4,11 +4,8 @@
 
 // You must find a way to keep the original values of clone1 and clone2. The values of samePerson should change when person is changed.
 
-const clone1 = person;
-const clone2 = person;
+const clone1 = {...person};
+const clone2 = {...person};
 let samePerson = person;
 person.age++;
 person.country = 'FR';
-
-
-
