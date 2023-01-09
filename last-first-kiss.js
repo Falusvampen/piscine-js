@@ -16,5 +16,5 @@ function last(x){
 };
 
 function kiss(x){
-    return last(x) + first(x) 
+    return [last(x), first(x)]
 };
