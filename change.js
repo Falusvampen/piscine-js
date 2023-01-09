@@ -17,6 +17,6 @@ function get(key){
 };
 
 function set(key, x){
-    key[x] = x;
+    sourceObject[key] = x;
     return x;
 };
