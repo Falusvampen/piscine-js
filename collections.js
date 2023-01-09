@@ -74,15 +74,11 @@ function strToSet(str) {
 }
 
 function mapToObj(map) {
-  const obj = {};
-  for (const [key, value] of map) {
-    obj[key] = value;
-  }
-  return obj;
+  return Object.fromEntries(map);
 }
 
 function objToArr(obj) {
- return Object.entries(obj);
+ return Object.values(obj);
 }
 
 
