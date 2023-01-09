@@ -64,15 +64,15 @@ function strToObj(str) {
   }, {});
 }
 
-function superTypeOf(value) {
+const superTypeOf = value => {
   if (value === null) return 'null';
-  let instances = { Map, Set, Array, Function };
+  let instances = { Set, Map, Array, Function };
   for (let key in instances) {
-    if (value instanceof instances[key]) return instances;
+    if (value instanceof instances[key]) return key;
   }
   let types = { string: 'string', number: 'number', Object: 'object'};
   for (let key in types) {
-    if (typeof value === types[key]) return types;
+    if (typeof value === types[key]) return key;
   }
   return typeof value;
 }
