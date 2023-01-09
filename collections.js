@@ -103,7 +103,7 @@ function objToMap(obj) {
 // }
 
 function arrToObj(arr) {
-  return arr.Reduce((obj, value, index,) => {
+  return arr.reduce((obj, value, index,) => {
     obj[index] = value;
     return obj;
   }, {});
