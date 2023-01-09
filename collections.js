@@ -31,11 +31,11 @@ function setToStr(set) {
 }
 
 function strToArr(str) {
-  return str.split(',');
+  return str.split('');
 }
 
 function strToSet(str) {
-  return new Set(str.split(','));
+  return new Set(str.split(''));
 }
 
 function mapToObj(map) {
@@ -64,7 +64,7 @@ function arrToObj(arr) {
 
 function strToObj(str) {
   const obj = {};
-  const arr = str.split(',');
+  const arr = str.split('');
   for (const [key, value] of arr) {
     obj[key] = value;
   }
