@@ -4,9 +4,9 @@
 // It should function like String.repeat(), but of course you must make your own.
 
 function repeat(x, y){
-    var z = "";
-    for (var i = 0; i < y; i++){
-        z += x;
-    }
-    return z;
+res = ""
+for (i = 0; i< y; i++){
+  res += x
+}
+return res
 }
