@@ -4,7 +4,7 @@
 // It should function like String.repeat(), but of course you must make your own.
 
 function repeat(x, y){
-res = ""
+let res = ""
 for (i = 0; i< y; i++){
   res += x
 }

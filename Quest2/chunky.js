@@ -8,8 +8,8 @@
 // If the array cannot be split evenly, the last sub-array will contain the remaining elements.
 
 function chunk(array, size){
-    let res = []
-    let temp = []
+    res = []
+    temp = []
     for (i = 0; i < array.length; i++){
         if (i % size === 0 && i !== 0){
             res.push(temp)
