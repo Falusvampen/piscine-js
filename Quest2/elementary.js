@@ -5,50 +5,76 @@
 // divide that acts like the integer division operator /, without using it.
 // modulo that acts like the % operator, without using it.
 
-function multiply(a, b){
-    var c = 0;
-    let negative = false;
-    if(a < 0 || b < 0){
-        negative = true;
-        a = Math.abs(a);
-        b = Math.abs(b);
-    }
-    for (var i = 0; i < b; i++){
-        c += a;
-    }
-    if(negative) c = -c;
-    return c;
+function multiply(a, b) {
+  let result = 0;
+  let c = b;
+  let tag = false;
+  if (b < 0) {
+    b = -b;
+    tag = true;
+  }
+  while (b > 0) {
+    result += a;
+    b--;
+  }
+  if (tag) {
+    result = -result;
+  }
+  return result;
 }
 
-
 function divide(a, b) {
+  // This function divides a by b
+  let tag = false;
   let count = 0;
-  let total = a;
-  let negative = false;
-  if(a < 0 || b < 0){
-    negative = true;
-    a = Math.abs(a);
-    b = Math.abs(b);
+  if (a < 0 && b < 0) {
+    a = -a;
+    b = -b;
   }
-  while (total >= b) {
-    total -= b;
+
+  if (a < 0) {
+    a = -a;
+    tag = true;
+  }
+  if (b < 0) {
+    b = -b;
+    tag = true;
+  }
+  let result = a;
+  while (a >= b) {
+    a -= b;
     count++;
   }
-  if(negative) count = -count;
+  if (tag) {
+    count = -count;
+  }
   return count;
 }
 
-
 function modulo(a, b) {
-  let total = a;
-  let negative = false;
-  if(a < 0){
-    negative = true;
-    total = Math.abs(a);
+  // Make sure both a and b are positive.
+  let tag = false;
+  if (a < 0) {
+    a = -a;
+    tag = true;
   }
-  while (total >= b) {
-    total -= b;
+  if (b < 0) {
+    b = -b;
   }
-  if(negative) return -total;
-  return total;
+
+  // Subtract b from a until it is smaller than b.
+  let result = a;
+  let c = b;
+  let count = 0;
+  while (b <= result) {
+    result = result - c;
+    count++;
+  }
+
+  // If a was negative, we need to make the result negative.
+  if (tag) {
+    result = -result;
+  }
+
+  return result;
 }
