@@ -17,16 +17,16 @@ function nasa(n) {
   }
 
   // Recursive case
-  let output = "";
+  let output = nasa(n - 1) + " ";
   if (n % 15 === 0) {
-    output += "NASA ";
+    output += "NASA";
   } else if (n % 5 === 0) {
-    output += "SA ";
+    output += "SA";
   } else if (n % 3 === 0) {
-    output += "NA ";
+    output += "NA";
   } else {
-    output += n + " ";
+    output += n;
   }
 
-  return output + nasa(n - 1);
+  return output;
 }
