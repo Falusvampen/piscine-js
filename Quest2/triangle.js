@@ -23,5 +23,3 @@ function triangle(char, depth) {
     }
     return res
 }
-
-console.log(triangle('*', 5))
