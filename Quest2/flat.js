@@ -18,16 +18,38 @@
 // }
 
 // iterative
-function flat(arr, depth = 2) {
-    let newArr = []
-    while (arr.length && depth > 0) {
-        let value = arr.shift()
-        if (Array.isArray(value) && depth > 0) {
-            arr.unshift(...value)
-            depth--;
-        } else {
-            newArr.push(value)
-        }
-    }
-    return newArr
+// function flat(arr, depth = 1) {
+//     let newArr = []
+//     let currentDepth = depth;
+//     while (arr.length && depth > 0) {
+//         let value = arr.shift()
+//         if (Array.isArray(value) && currentDepth > 1) {
+//             arr.unshift(...value)
+//             currentDepth--;
+//         } else {
+//             newArr.push(value)
+//         }
+//     }
+//     return newArr
+// }
+
+const flat = (arr, deep) => {
+  if (!deep) {
+    return arr.reduce((acc, val) => acc.concat(val), []);
+  } else if (deep == "Infinity") {
+    return flatDeep(arr);
+  }
+  for (let i = 1; i <= deep; i++) {
+    arr = arr.reduce((acc, val) => acc.concat(val), []);
+  }
+  return arr;
+};
+function flatDeep(arr) {
+  return arr.reduce(
+    (acc, val) => acc.concat(Array.isArray(val) ? flatDeep(val) : val),
+    []
+  );
 }
+
+
+// console.log(flat([1, [2, [3]]]))
