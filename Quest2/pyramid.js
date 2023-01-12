@@ -11,11 +11,12 @@
 
 function pyramid(char, depth) {
     let res = ''
+    let space = ' '.repeat(char.length)
     for (let i = 1; i <= depth; i++){
         if (i !== depth){
-            res += ' '.repeat(depth - i) + char.repeat(2*i-1) + '\n'
+            res += space.repeat(depth - i) + char.repeat(2*i-1) + '\n'
         }else{
-            res += ' '.repeat(depth - i) + char.repeat(2*i-1)
+            res += space.repeat(depth - i) + char.repeat(2*i-1)
         }
     }
     return res
