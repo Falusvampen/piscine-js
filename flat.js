@@ -8,26 +8,27 @@
 
 // Array.prototype.flat = undefined
 
-const flat = (arr) => {
 
-    let res = []
-
-    for (let i = 0; i < arr.length; i++) {
-
-        if (Array.isArray(arr[i])) {
-
-            for (arr of arr[i]) {
-
-                res.push(arr)
-
-            }
-
-        } else {
-
-            res.push(arr[i])
-
-        }
-
-    }
-
+// recursively
+function flat(arr) {
+    return arr.reduce(function(acc, val) {
+        return acc.concat(Array.isArray(val) ? flat(val) : val);
+    }, []);
 }
+// iterative
+// function flat(arr) {
+//     let newArr = []
+//     while (arr.length) {
+//         let value = arr.shift()
+//         if (Array.isArray(value)) {
+//             arr.unshift(...value)
+//         } else {
+//             newArr.push(value)
+//         }
+//     }
+//     return newArr
+// }
+
+
+
+console.log(flat([1, 2, [3, 4, [5, 6]]]))
