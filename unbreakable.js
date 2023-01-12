@@ -17,29 +17,43 @@
 // RegExp.prototype.exec = undefined
 // Array.prototype.join = undefined
 
-function split(str, sep){
-    let res = []
-    let temp = ""
-    for (let i = 0; i < str.length; i++){
-        if (str[i] === sep){
-        res.push(temp)
-            temp = ""
-        }else {
-            temp += str[i]
-        }
-    }
-    res.push(temp)
-    return res
-}
+const split = (str, obj) => {
+  let arr = [];
+  let word = "";
+  let i = 0;
 
-function join(array, sep){
-    var res = ""
-        for (let i = 0; i< array.length; i++){
-        res += array[i];
-        if (i < array.length-1){
-        res += sep;
-        }
+  if (obj == "") {
+    for (let i = 0; i < str.length; i++) {
+      arr.push(str[i]);
     }
-    return res
-}
+    return arr;
+  }
+  while (i < str.length) {
+    if (str[i] == obj[0]) {
+      let flag = str.slice(i, i + obj.length);
+      if (flag == obj) {
+        arr.push(word);
+        word = "";
+        i += obj.length;
+        continue;
+      }
+    }
+    word += str[i];
+    i++;
+  }
+  arr.push(word);
+  word = "";
+  return arr;
+};
 
+const join = (arr, obj) => {
+  let r = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (i === arr.length - 1) {
+      r += arr[i];
+    } else {
+      r += arr[i] + obj;
+    }
+  }
+  return r;
+};
