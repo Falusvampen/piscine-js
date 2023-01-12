@@ -13,10 +13,8 @@
 // Each strand must be represented as upper case string, without spaces, eg: "ATCG" is a valid DNA strand.
 
 
+
 function RNA(RNAStrand){
-    if (typeof RNAStrand !== "string"){
-        return ""
-    }
     let dnastrand = ""
         for (let i = 0; i < RNAStrand.length; i++){
         if (RNAStrand[i] === "C"){
@@ -32,12 +30,10 @@ function RNA(RNAStrand){
             dnastrand += "A"
         }
     }
+    return dnastrand
 }
 
 function DNA(DNAstrand){
-    if (typeof DNAStrand !== "string"){
-        return ""
-    }
     let rnastrand = ""
         for (let i = 0; i < DNAstrand.length; i++){
         if (DNAstrand[i] === "C"){
@@ -53,4 +49,5 @@ function DNA(DNAstrand){
             rnastrand += "U"
         }
     }
+    return rnastrand
 }
