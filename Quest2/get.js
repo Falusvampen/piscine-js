@@ -11,8 +11,6 @@
 // get(src, path) // -> 'peekaboo'
 
 function get(src, path) {
-
-    function get(src, path) {
     // split the path by '.' to get an array of keys
     const keys = path.split('.');
     let current = src;
@@ -25,6 +23,4 @@ function get(src, path) {
         }
     }
     return current;
-}
-
 }
