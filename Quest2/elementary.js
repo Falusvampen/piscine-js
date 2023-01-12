@@ -7,11 +7,19 @@
 
 function multiply(a, b){
     var c = 0;
+    let negative = false;
+    if(a < 0 || b < 0){
+        negative = true;
+        a = Math.abs(a);
+        b = Math.abs(b);
+    }
     for (var i = 0; i < b; i++){
         c += a;
     }
+    if(negative) c = -c;
     return c;
 }
+
 
 function divide(a, b) {
   let count = 0;
