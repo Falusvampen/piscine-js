@@ -19,7 +19,7 @@
 function split(str, sep){
     let res = []
     let temp = ""
-    for (i = 0; i < str.length; i++){
+    for (let i = 0; i < str.length; i++){
         if (str[i] === sep){
         res.push(temp)
             temp = ""
