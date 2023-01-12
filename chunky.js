@@ -10,7 +10,7 @@
 function chunk(array, size){
     let res = []
     let temp = []
-    for (i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++){
         if (i % size === 0 && i !== 0){
             res.push(temp)
             temp = []
