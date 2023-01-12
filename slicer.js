@@ -15,30 +15,15 @@
 // Array.prototype.slice = undefined
 // String.prototype.slice = undefined
 
-function slice(input, start, end) {
-    start = Math.abs(start)
-    end = Math.abs(end)
-    if (typeof input === "string") {
-        let result = "";
-        if (end === undefined) {
-            end = input.length;
-        }
-        for (let i = start; i < end && i < input.length; i++) {
-            result += input[i];
-        }
-        return result;
-    }
-    else if (Array.isArray(input)) {
-        let result = [];
-        if (end === undefined) {
-            end = input.length;
-        }
-        for (let i = start; i < end && i < input.length; i++) {
-            result.push(input[i]);
-        }
-        return result;
-    }
-    else {
-        throw new Error("Invalid input, only string or array are allowed");
-    }
-}
+const slice = (obj, ind = 0, opt = obj.length) => {
+  let res = [];
+  if (ind < 0) ind = obj.length + ind;
+  if (opt < 0) opt = obj.length + opt;
+  while (ind < opt) {
+    if (obj instanceof Array) {
+      res.push(obj[ind]);
+    } else res += obj[ind];
+    ind++;
+  }
+  return res;
+};
