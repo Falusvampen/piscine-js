@@ -15,28 +15,29 @@
 // Array.prototype.lastIndexOf = undefined
 // Array.prototype.includes = undefined
 
-function indexOf(array, value){
-for (let i = 0; i < array.length; i++){
-if (array[i] == value){
-  return i
-}
-}
-}
-
-function lastIndexOf(array, value){
-    for (let i = array.length; i > 0; i--){
-        if (array[i] == value){
-            return i
+function indexOf(arr, val, startIndex = 0) {
+    for (let i = startIndex; i < arr.length; i++) {
+        if (arr[i] === val) {
+            return i;
         }
     }
+    return -1;
 }
 
-function includes(array, value){
-    for (let i = array.length; i > 0; i--){
-        if (array[i] == value){
-            return true
-        }else{
-            return false
+function lastIndexOf(arr, val, startIndex = arr.length - 1) {
+    for (let i = startIndex; i >= 0; i--) {
+        if (arr[i] === val) {
+            return i;
         }
     }
+    return -1;
+}
+
+function includes(arr, val) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === val) {
+            return true;
+        }
+    }
+    return false;
 }
