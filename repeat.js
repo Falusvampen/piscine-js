@@ -5,7 +5,7 @@
 
 function repeat(x, y){
 let res = "";
-for (i = 0; i< y; i++){
+for (let i = 0; i< y; i++){
   res += x;
 };
 return res;
