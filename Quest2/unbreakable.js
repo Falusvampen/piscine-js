@@ -33,7 +33,7 @@ function split(str, sep){
 
 function join(array, sep){
     var res = ""
-        for (i = 0; i< array.length; i++){
+        for (let i = 0; i< array.length; i++){
         res += array[i];
         if (i < array.length-1){
         res += sep;

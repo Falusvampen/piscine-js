@@ -17,8 +17,8 @@
 // RegExp.prototype.exec = undefined
 // Array.prototype.join = undefined
 function split(str, sep){
-    res = []
-    temp = ""
+    let res = []
+    let temp = ""
     for (i = 0; i < str.length; i++){
         if (str[i] === sep){
         res.push(temp)
@@ -33,7 +33,7 @@ function split(str, sep){
 
 function join(array, sep){
     var res = ""
-        for (i = 0; i< array.length; i++){
+        for (let i = 0; i< array.length; i++){
         res += array[i];
         if (i < array.length-1){
         res += sep;
