@@ -10,25 +10,24 @@
 
 
 // recursively
-function flat(arr) {
-    return arr.reduce(function(acc, val) {
-        return acc.concat(Array.isArray(val) ? flat(val) : val);
-    }, []);
-}
-// iterative
-// function flat(arr) {
-//     let newArr = []
-//     while (arr.length) {
-//         let value = arr.shift()
-//         if (Array.isArray(value)) {
-//             arr.unshift(...value)
-//         } else {
-//             newArr.push(value)
-//         }
-//     }
-//     return newArr
+// function flat(arr, depth = 1) {
+//     if(depth === 0) return arr;
+//     return arr.reduce(function(acc, val) {
+//         return acc.concat(Array.isArray(val) ? flat(val, depth-1) : val);
+//     }, []);
 // }
 
-
-
-console.log(flat([1, 2, [3, 4, [5, 6]]]))
+// iterative
+function flat(arr, depth = 2) {
+    let newArr = []
+    while (arr.length && depth > 0) {
+        let value = arr.shift()
+        if (Array.isArray(value) && depth > 0) {
+            arr.unshift(...value)
+            depth--;
+        } else {
+            newArr.push(value)
+        }
+    }
+    return newArr
+}
