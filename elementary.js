@@ -16,17 +16,31 @@ function multiply(a, b){
 function divide(a, b) {
   let count = 0;
   let total = a;
+  let negative = false;
+  if(a < 0 || b < 0){
+    negative = true;
+    a = Math.abs(a);
+    b = Math.abs(b);
+  }
   while (total >= b) {
     total -= b;
     count++;
   }
+  if(negative) count = -count;
   return count;
 }
 
+
 function modulo(a, b) {
   let total = a;
+  let negative = false;
+  if(a < 0){
+    negative = true;
+    total = Math.abs(a);
+  }
   while (total >= b) {
     total -= b;
   }
+  if(negative) return -total;
   return total;
 }
