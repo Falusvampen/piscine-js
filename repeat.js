@@ -4,9 +4,9 @@
 // It should function like String.repeat(), but of course you must make your own.
 
 function repeat(x, y){
-res = ""
+res = "";
 for (i = 0; i< y; i++){
-  res += x
-}
-return res
+  res += x;
+};
+return res;
 }
