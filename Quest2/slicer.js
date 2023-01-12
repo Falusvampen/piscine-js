@@ -16,6 +16,8 @@
 // String.prototype.slice = undefined
 
 function slice(input, start, end) {
+    start = Math.abs(start)
+    end = Math.abs(end)
     if (typeof input === "string") {
         let result = "";
         if (end === undefined) {
