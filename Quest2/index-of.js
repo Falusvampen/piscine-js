@@ -11,12 +11,12 @@
 // Code provided
 // The provided code will be added to your solution, and does not need to be submitted.
 
-Array.prototype.indexOf = undefined
-Array.prototype.lastIndexOf = undefined
-Array.prototype.includes = undefined
+// Array.prototype.indexOf = undefined
+// Array.prototype.lastIndexOf = undefined
+// Array.prototype.includes = undefined
 
 function indexOf(array, value){
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
 if (array[i] == value){
   return i
 }
@@ -24,7 +24,7 @@ if (array[i] == value){
 }
 
 function lastIndexOf(array, value){
-    for (i = array.length; i > 0; i--){
+    for (let i = array.length; i > 0; i--){
         if (array[i] == value){
             return i
         }
@@ -32,7 +32,7 @@ function lastIndexOf(array, value){
 }
 
 function includes(array, value){
-    for (i = array.length; i > 0; i--){
+    for (let i = array.length; i > 0; i--){
         if (array[i] == value){
             return true
         }else{
