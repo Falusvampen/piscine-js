@@ -10,7 +10,7 @@
 // *********
 
 function pyramid(char, depth) {
-    res = ''
+    let res = ''
     for (let i = 1; i <= depth; i++){
         if (i !== depth){
             res += ' '.repeat(depth - i) + char.repeat(2*i-1) + '\n'
