@@ -11,10 +11,10 @@
 //  T  -  A
 //  A  -  U
 // Each strand must be represented as upper case string, without spaces, eg: "ATCG" is a valid DNA strand.
+// TAGC
+// AUCG
 
-
-
-function RNA(RNAStrand){
+function DNA(RNAStrand){
     let dnastrand = ""
         for (let i = 0; i < RNAStrand.length; i++){
         if (RNAStrand[i] === "C"){
@@ -33,7 +33,7 @@ function RNA(RNAStrand){
     return dnastrand
 }
 
-function DNA(DNAstrand){
+function RNA(DNAstrand){
     let rnastrand = ""
         for (let i = 0; i < DNAstrand.length; i++){
         if (DNAstrand[i] === "C"){
