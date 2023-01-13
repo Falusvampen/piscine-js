@@ -11,10 +11,10 @@ function sameAmount(str, regex1, regex2) {
   return (str.match(regex1) || []).length === (str.match(regex2) || []).length;
 }
 
-const str = `qqqqqqq q qqqqqqqfsqqqqq q qq  qw w wq wqw  wqw
- ijnjjnfapsdbjnkfsdiqw klfsdjn fs fsdnjnkfsdjnk sfdjn fsp fd`
+// const str = `qqqqqqq q qqqqqqqfsqqqqq q qq  qw w wq wqw  wqw
+//  ijnjjnfapsdbjnkfsdiqw klfsdjn fs fsdnjnkfsdjnk sfdjn fsp fd`
 
-const regex1 = /q /;
-const regex2 = /qqqqqqq/;
+// const regex1 = /q /;
+// const regex2 = /qqqqqqq/;
 
-console.log(sameAmount(str, regex1, regex2));
+// console.log(sameAmount(str, regex1, regex2));
