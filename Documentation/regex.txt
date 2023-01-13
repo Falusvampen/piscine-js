@@ -1,0 +1,187 @@
+This is my notes on regex, hope they help you.
+
+//Falusvampen
+
+
+Basic Matchers
+In regular expressions, basic matchers are characters that match themselves exactly. 
+For example, the letter "a" will match the letter "a" in a string.
+Basic matchers can also include numbers, special characters, and whitespace.
+
+
+Meta Characters
+Meta characters are characters that have special meaning in regular expressions. They are used to create more complex patterns for matching.
+Some common meta characters include: ., *, +, ?, {}, [], ( ), |, ^, $
+
+
+The Full Stop
+The full stop (.) is a meta character that matches any character except for a newline.
+For example, the pattern "a.b" will match "abc" or "a3b" but not "a\nb".
+
+
+
+Character Sets
+Character sets are used to match one character out of a set of characters. They are enclosed in square brackets [].
+For example, the pattern "[abc]" will match any of the letters "a", "b", or "c".
+
+
+
+Negated Character Sets
+Negated character sets are used to match any character that is not in the set. They are created by placing a caret (^) at the start of the character set.
+For example, the pattern "[^abc]" will match any character that is not "a", "b", or "c".
+
+
+
+Repetitions
+Repetitions are used to match a character or group of characters multiple times. 
+They are created using meta characters such as *, +, and ?.
+The * meta character matches zero or more repetitions of the preceding character or group.
+The + meta character matches one or more repetitions of the preceding character or group.
+The ? meta character matches zero or one repetition of the preceding character or group.
+The Star
+The star (*) is a meta character that matches zero or more repetitions of the preceding character or group.
+For example, the pattern "a*" will match "", "a", "aa", "aaa", etc.
+The Plus
+The plus (+) is a meta character that matches one or more repetitions of the preceding character or group.
+For example, the pattern "a+" will match "a", "aa", "aaa", etc. but not "" (empty string).
+(more in depth about repetitions)
+Repetitions are used to match a character or group of characters multiple times within a string. 
+They are created using meta characters such as *, +, and ?.
+The * meta character matches zero or more repetitions of the preceding character or group. 
+For example, the pattern "a*" will match the empty string "" or any number of "a" characters, such as "a", "aa", "aaa", etc.
+The + meta character matches one or more repetitions of the preceding character or group. 
+For example, the pattern "a+" will match one or more "a" characters, such as "a", "aa", "aaa", etc. but not the empty string "".
+The ? meta character matches zero or one repetition of the preceding character or group. 
+For example, the pattern "a?" will match either "" or "a" but not "aa" or "aaa".
+In short, the *, +, and ? meta characters are used to match repetitions of characters or groups of characters within a string. 
+The * matches zero or more repetitions, the + matches one or more repetitions, and the ? matches zero or one repetition. 
+These repetitions are useful for searching for patterns in a string and can be used in different scenarios depending on what the user want to achieve.
+
+
+
+
+
+
+
+The Question Mark
+The question mark (?) is a meta character that matches zero or one repetition of the preceding character or group.
+For example, the pattern "a?" will match "" or "a" but not "aa" or "aaa".
+
+
+
+Braces
+Braces {} are used to specify a specific number of repetitions of the preceding character or group.
+For example, the pattern "a{3}" will match "aaa" but not "aa" or "a".
+
+
+
+Capturing Groups
+Capturing groups are used to group characters or patterns together and capture the matched text for later use. 
+They are created using parentheses ().
+For example, the pattern "(abc)" will capture the text "abc" if it is found in the string.
+
+
+
+Non-Capturing Groups
+Non-capturing groups are used to group characters or patterns together without capturing the matched text. 
+They are created using parentheses and the question mark (?:).
+For example, the pattern "(?:abc)" will group the characters "abc" together but not capture the matched text.
+
+
+
+Alternation
+Alternation is used to match one of several different patterns. It is created using the vertical bar (|).
+For example, the pattern "abc|def" will match "abc" or "def" in a string.
+
+
+Escaping Special Characters
+In order to match a special character as a literal character, it needs to be escaped with a backslash ().
+For example, the pattern "a.b" will match the string "a.b" instead of any character followed by "b".
+
+
+
+Anchors
+Anchors are used to match the position of a character or group of characters in a string.
+The caret (^) is an anchor that matches the start of a string, while the dollar sign ($) matches the end of a string.
+The Caret
+The caret (^) is an anchor that matches the start of a string.
+For example, the pattern "^abc" will match "abc" only if it is at the start of a string.
+
+
+
+The Dollar Sign
+The dollar sign ($) is an anchor that matches the end of a string.
+For example, the pattern "abc$" will match "abc" only if it is at the end of a string.
+Shorthand Character Sets
+Regular expressions have several shorthand character sets that can be used to match common sets of characters.
+Some examples include: \d (any digit), \w (any word character), \s (any whitespace character), 
+\D (any non-digit), \W (any non-word character), \S (any non-whitespace character).
+
+
+
+Lookarounds
+Lookarounds are used to match a pattern based on the presence or absence of another pattern before or after it.
+Positive lookahead (?=) and negative lookahead (?!) are used to match patterns based on what follows them, 
+while positive lookbehind (?<=) and negative lookbehind (?<!) are used to match patterns based on what precedes them.
+
+
+
+Positive Lookahead
+Positive lookahead (?=) is used to match a pattern only if it is followed by a specific pattern.
+For example, the pattern "abc(?=def)" will match "abc" only if it is followed by "def" in the string.
+
+
+
+Negative Lookahead
+Negative lookahead (?!) is used to match a pattern only if it is not followed by a specific pattern.
+For example, the pattern "abc(?!def)" will match "abc" only if it is not followed by "def" in the string.
+
+
+
+Positive Lookbehind
+Positive lookbehind (?<=) is used to match a pattern only if it is preceded by a specific pattern.
+For example, the pattern "(?<=abc)def" will match "def" only if it is preceded by "abc" in the string.
+
+
+
+Negative Lookbehind
+Negative lookbehind (?<!) is used to match a pattern only if it is not preceded by a specific pattern.
+For example, the pattern "(?<!abc)def" will match "def" only if it is not preceded by "abc" in the string.
+
+
+
+Flags
+Flags are used to change the behavior of a regular expression. 
+They are placed at the end of the pattern and are preceded by a forward slash ( / ).
+Some common flags include: i (case-insensitive), g (global search), m (multiline).
+
+
+
+Case Insensitive
+The case-insensitive flag (i) is used to match characters regardless of their case.
+For example, the pattern "abc" with the case-insensitive flag will match "abc", "aBc", "AbC", etc.
+
+
+
+Global Search
+The global search flag (g) is used to match all occurrences of a pattern in a string, rather than just the first occurrence.
+For example, the pattern "abc" with the global search flag will match all instances of "abc" in a string, rather than just the first one.
+
+
+
+Multiline
+The multiline flag (m) is used to treat the start and end of a string as the beginning and end of a line, rather than the entire string. 
+This allows for matching patterns that span multiple lines.
+
+
+
+Greedy vs Lazy Matching
+Regular expressions use greedy matching by default, which means they will match as much of the string as possible.
+Lazy matching (also known as non-greedy matching) is used to match as little of the string as possible. This is achieved by adding a question mark (?) after a repetition meta character such as *, +, or {}.
+For example, the pattern "a*" will match as many "a" characters as possible, while the pattern "a*?" will match as few "a" characters as possible.
+
+
+summary
+
+ "|" is used as a separator when you want to input more arguments (see Alternation)
+ if you want to use ex a meta char as a literal, you need to escape it using "\"
