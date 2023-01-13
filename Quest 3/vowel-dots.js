@@ -10,10 +10,6 @@
 // https://github.com/ziishaned/learn-regex#22-character-sets
 
 const vowels = /[aeiou]/gi;
-
 const vowelDots = (str) => {
-   
     return str.replace(vowels, '$&.');
 }
-
-console.log(vowelDots('hello world'));
