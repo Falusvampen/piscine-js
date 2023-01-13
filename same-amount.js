@@ -8,6 +8,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#using_regular_expressions_in_javascrip
 
 const sameAmount = (str, regex1, regex2) => {
+    if (!str || !regex1 || !regex2) {
+        return false;
+    }
     const matches1 = str.match(regex1);
     const matches2 = str.match(regex2);
     return matches1.length === matches2.length;
