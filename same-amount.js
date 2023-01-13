@@ -8,8 +8,9 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#using_regular_expressions_in_javascrip
 
 function sameAmount(str, regex1, regex2) {
-  return (str.match(regex1) || []).length === (str.match(regex2) || []).length;
+  return (regex1.test(str) === regex2.test(str));
 }
+
 
 // const str = `qqqqqqq q qqqqqqqfsqqqqq q qq  qw w wq wqw  wqw
 //  ijnjjnfapsdbjnkfsdiqw klfsdjn fs fsdnjnkfsdjnk sfdjn fsp fd`
