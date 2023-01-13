@@ -7,14 +7,16 @@
 // Notions
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#using_regular_expressions_in_javascrip
 
-const sameAmount = (str, regex1, regex2) => {
-    if (!str || !regex1 || !regex2) {
-        return false;
-    }
-    const matches1 = str.match(regex1);
-    const matches2 = str.match(regex2);
-    if(!matches1 || !matches2){
-        return false;
-    }
-    return matches1.length === matches2.length;
+function sameAmount(str, regex1, regex2) {
+    regex1 = new RegExp(regex1, 'g');
+    regex2 = new RegExp(regex2, 'g');
+  return (str.match(regex1) || []).length === (str.match(regex2) || []).length;
 }
+
+// const str = `qqqqqqq q qqqqqqqfsqqqqq q qq  qw w wq wqw  wqw
+//  ijnjjnfapsdbjnkfsdiqw klfsdjn fs fsdnjnkfsdjnk sfdjn fsp fd`
+
+// const regex1 = /q /;
+// const regex2 = /qqqqqqq/;
+
+// console.log(sameAmount(str, regex1, regex2));
