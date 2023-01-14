@@ -14,18 +14,30 @@
 // Notions
 // Learn RegEx
 
-function getURL(dataSet) {
-  const urlReg = /https?:\/\/[^\s]+/g;
-  return dataSet.match(urlReg);
-}
-
-function greedyQuery(dataSet) {
-  const urlReg = /https?:\/\/[^\s]+\?(?:[^&]+&){2,}[^&]*?/g;
-  return dataSet.match(urlReg);
-}
-
-
-function notSoGreedy(dataSet) {
-  const urlReg = /https?:\/\/[^\s]+\?(?:[^&]+&){1,2}[^&]+/g;
-  return dataSet.match(urlReg);
-}
+const getURL = (dataset) => {
+  let urlFilter = /(https:|http:)\/\/\S+/;
+  return dataset.match(new RegExp(urlFilter, "gm"));
+};
+const greedyQuery = (dataset) => {
+  let res = [];
+  let arr = getURL(dataset);
+  arr.map((x) => {
+    if (/[?]/.test(x) && x.split("&").length >= 3) {
+      res.push(x);
+    }
+  });
+  return res;
+};
+const notSoGreedy = (dataset) => {
+  let res = [];
+  let arr = getURL(dataset);
+  arr.map((x) => {
+    if (
+      /[?]/.test(x) &&
+      (x.split("&").length === 2 || x.split("&").length === 3)
+    ) {
+      res.push(x);
+    }
+  });
+  return res;
+};
