@@ -20,9 +20,10 @@ function getURL(dataSet) {
 }
 
 function greedyQuery(dataSet) {
-  const urlReg = /https?:\/\/[^\s]+\?(?:[^&]+&){2,}/g;
+  const urlReg = /https?:\/\/[^\s]+\?(?:[^&]+&){2,}[^&]*?/g;
   return dataSet.match(urlReg);
 }
+
 
 function notSoGreedy(dataSet) {
   const urlReg = /https?:\/\/[^\s]+\?(?:[^&]+&){1,2}[^&]+/g;
