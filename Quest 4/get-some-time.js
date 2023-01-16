@@ -27,3 +27,4 @@ function firstDayWeek(week, year) {
 function formatDate(d) {
   return d.toISOString().slice(0, 10).split("-").reverse().join("-");
 }
+
