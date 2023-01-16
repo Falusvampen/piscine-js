@@ -14,15 +14,21 @@
 // date-fns: isPast
 
 const isValid = (date) => {
-    return (date > 0 || date < 0);
-    };
+  return date > 0 || date < 0;
+};
 
 const isAfter = (date1, date2) => {
-    return date1 > date2;
-    };
+  return date1 > date2;
+};
 
 const isBefore = (date1, date2) => {
-    return date1 < date2;
-    };
+  return date1 < date2;
+};
 
-    console.log(isValid(new Date("2020-01-01")));
+const isFuture = (date) => {
+  return isValid(date) && isAfter(date, new Date());
+};
+
+const isPast = (date) => {
+  return isValid(date) && isBefore(date, new Date());
+};
