@@ -24,7 +24,6 @@
 // Expected result
 // You can see an example of the expected result here
 
-
 // Notions
 // createElement
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
@@ -65,39 +64,19 @@
 
 export function build(x) {
   let i = 1;
-  let counterFoundation = 2;
   let interval = setInterval(function () {
     let block = document.createElement("div");
     document.body.append(block);
     block.textContent = i;
     block.id = "brick-" + i;
     block.className = "brick";
+    block.dataset.foundation = i % 3 === 0 ? true : false;
     ++i;
-    if (counterFoundation === 3) {
-      block.dataset.foundation = true;
-      counterFoundation = 0;
-    }
-    ++counterFoundation;
     if (i === x + 1) {
       clearInterval(interval);
     }
   }, 100);
 }
-
-// export function build(x) {
-//   let i = 1;
-//   let interval = setInterval(function () {
-//     let brick = document.createElement("div");
-//     document.body.append(brick);
-//     brick.id = "brick-" + i;
-//     brick.className = "brick";
-//     brick.textContent = i;
-//     i++;
-//     if (i === x + 1) {
-//       clearInterval(interval);
-//     }
-//   }, 100);
-// }
 
 export function repair(...repairs) {
   for (let i = 0; i < repairs.length; i++) {

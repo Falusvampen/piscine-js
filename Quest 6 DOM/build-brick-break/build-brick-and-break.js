@@ -24,32 +24,6 @@
 // Expected result
 // You can see an example of the expected result here
 
-// export function build(nbr) {
-//   const tower = document.querySelector(".tower");
-//   for (let i = 1; i <= nbr; i++) {
-//     const brick = document.createElement("div");
-//     brick.id = `brick-${i}`;
-//     tower.append(brick);
-//   }
-// }
-
-// export function repair(...ids) {
-//   ids.forEach((id) => {
-//     const brick = document.getElementById(id);
-//     if (brick.dataset.foundation === "true") {
-//       brick.dataset.repaired = "in progress";
-//     } else {
-//       brick.dataset.repaired = "true";
-//     }
-//   });
-// }
-
-// export function destroy() {
-//   const bricks = document.querySelectorAll(".tower > div");
-//   const lastBrick = bricks[bricks.length - 1];
-//   lastBrick.remove();
-// }
-
 // Notions
 // createElement
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
@@ -88,36 +62,16 @@
 // 7. For each id, it retrieves the HTML element, and sets the repaired custom attribute to in progress if it is a brick situated in the middle column, and true if not.
 // 8. 🧨: triggers the destroy function. Write the body of that function. It removes the current last brick in the tower.
 
-// export function build(x) {
-//   let i = 1;
-//   let counterFoundation = 2;
-//   let interval = setInterval(function () {
-//     let block = document.createElement("div");
-//     document.body.append(block);
-//     block.textContent = i;
-//     // block.id = "brick-" + i;
-//     // block.className = "brick";
-//     ++i;
-//     // if (counterFoundation === 3) {
-//     //   block.dataset.foundation = true;
-//       // counterFoundation = 0;
-//     // }
-//     ++counterFoundation;
-//     if (i === x + 1) {
-//       clearInterval(interval);
-//     }
-//   }, 100);
-// }
-
 export function build(x) {
   let i = 1;
   let interval = setInterval(function () {
-    let brick = document.createElement("div");
-    document.body.append(brick);
-    brick.id = "brick-" + i;
-    brick.className = "brick";
-    brick.textContent = i;
-    i++;
+    let block = document.createElement("div");
+    document.body.append(block);
+    block.textContent = i;
+    block.id = "brick-" + i;
+    block.className = "brick";
+    block.dataset.foundation = i % 3 === 0 ? true : false;
+    ++i;
     if (i === x + 1) {
       clearInterval(interval);
     }
