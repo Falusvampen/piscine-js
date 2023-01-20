@@ -63,41 +63,41 @@
 // 7. For each id, it retrieves the HTML element, and sets the repaired custom attribute to in progress if it is a brick situated in the middle column, and true if not.
 // 8. 🧨: triggers the destroy function. Write the body of that function. It removes the current last brick in the tower.
 
-// export function build(x) {
-//   let i = 1;
-//   let counterFoundation = 2;
-//   let interval = setInterval(function () {
-//     let block = document.createElement("div");
-//     document.body.append(block);
-//     block.textContent = i;
-//     // block.id = "brick-" + i;
-//     // block.className = "brick";
-//     ++i;
-//     // if (counterFoundation === 3) {
-//     //   block.dataset.foundation = true;
-//       // counterFoundation = 0;
-//     // }
-//     ++counterFoundation;
-//     if (i === x + 1) {
-//       clearInterval(interval);
-//     }
-//   }, 100);
-// }
-
 export function build(x) {
   let i = 1;
+  let counterFoundation = 2;
   let interval = setInterval(function () {
-    let brick = document.createElement("div");
-    document.body.append(brick);
-    brick.id = "brick-" + i;
-    brick.className = "brick";
-    brick.textContent = i;
-    i++;
+    let block = document.createElement("div");
+    document.body.append(block);
+    block.textContent = i;
+    block.id = "brick-" + i;
+    block.className = "brick";
+    ++i;
+    if (counterFoundation === 3) {
+      block.dataset.foundation = true;
+      counterFoundation = 0;
+    }
+    ++counterFoundation;
     if (i === x + 1) {
       clearInterval(interval);
     }
   }, 100);
 }
+
+// export function build(x) {
+//   let i = 1;
+//   let interval = setInterval(function () {
+//     let brick = document.createElement("div");
+//     document.body.append(brick);
+//     brick.id = "brick-" + i;
+//     brick.className = "brick";
+//     brick.textContent = i;
+//     i++;
+//     if (i === x + 1) {
+//       clearInterval(interval);
+//     }
+//   }, 100);
+// }
 
 export function repair(...repairs) {
   for (let i = 0; i < repairs.length; i++) {
