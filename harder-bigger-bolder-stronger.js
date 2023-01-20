@@ -41,12 +41,12 @@
 
 export function generateLetters() {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const letters = document.getElementById("letters");
   for (let i = 0; i < 120; i++) {
     const letter = document.createElement("div");
     letter.classList.add("letter");
     letter.textContent = alphabet[Math.floor(Math.random() * alphabet.length)];
-    letter.style.fontSize = `${11 + (130 - 11) * (i / 120)}px`;
+    // let size = Math.ceil(11 + i);
+    letter.style.fontSize = `${Math.floor(11 + i)}px`;
     // letter.style.fontWeight = i < 40 ? 300 : i < 80 ? 400 : 600;
     if (i < 40) {
       letter.style.fontWeight = 300;
