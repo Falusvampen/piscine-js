@@ -71,6 +71,7 @@ export function build(x) {
     block.id = "brick-" + i;
     block.className = "brick";
     block.dataset.foundation = i % 3 === 0 ? true : false;
+    block.dataset.foundation = i % 10 === 2 ? true : false;
     ++i;
     if (i === x + 1) {
       clearInterval(interval);
