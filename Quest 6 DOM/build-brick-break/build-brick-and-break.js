@@ -64,15 +64,19 @@
 
 export function build(x) {
   let i = 1;
+  let counterFoundation = 2;
   let interval = setInterval(function () {
     let block = document.createElement("div");
     document.body.append(block);
     block.textContent = i;
     block.id = "brick-" + i;
     block.className = "brick";
-    block.dataset.foundation = i % 3 === 0 ? true : false;
-    block.dataset.foundation = i % 10 === 2 ? true : false;
     ++i;
+    if (counterFoundation === 3) {
+      block.dataset.foundation = true;
+      counterFoundation = 0;
+    }
+    ++counterFoundation;
     if (i === x + 1) {
       clearInterval(interval);
     }
