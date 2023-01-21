@@ -37,83 +37,106 @@
 // range
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range
 
-import { gossips } from "./data.js";
+import { gossips } from "./gossip-grid.data.js";
+
 export function grid() {
-  let allChange = document.createElement("div");
-  allChange.className = "ranges";
-  let width = document.createElement("input");
-  width.className = "range";
-  width.id = "width";
-  width.type = "range";
-  width.value = "";
-  width.min = "200";
-  width.max = "800";
-  width.addEventListener("input", function () {
-    let gos = document.querySelectorAll(".gossip");
-    gos.forEach((e) => {
-      e.style.width = width.value + "px";
-    });
-  });
+  let body = document.querySelector("body");
 
-  let fontSize = document.createElement("input");
-  fontSize.className = "range";
-  fontSize.id = "fontSize";
-  fontSize.type = "range";
-  fontSize.min = "20";
-  fontSize.max = "40";
-  fontSize.value = "";
-  fontSize.addEventListener("input", function () {
-    let gos = document.querySelectorAll(".gossip");
-    gos.forEach((e) => {
-      e.style.fontSize = fontSize.value + "px";
-    });
-  });
+  createRange();
+  createForm();
 
-  let background = document.createElement("input");
-  background.className = "range";
-  background.id = "background";
-  background.type = "range";
-  background.min = "20";
-  background.max = "75";
-  background.value = "";
-  background.addEventListener("input", function () {
-    let gos = document.querySelectorAll(".gossip");
-    gos.forEach((e) => {
-      e.style.background = " hsl(280, 50%," + background.value + "%)";
-    });
-    console.log(background.value);
-  });
+  for (let i = 0; i < gossips.length; i++) {
+    let elementDiv = document.createElement("div");
+    elementDiv.setAttribute("class", "gossip");
+    elementDiv.innerText = gossips[i];
+    body.append(elementDiv);
+  }
+}
 
-  allChange.appendChild(width);
-  allChange.appendChild(fontSize);
-  allChange.appendChild(background);
-  document.body.appendChild(allChange);
+function createRange() {
+  let body = document.querySelector("body");
+  let divRange = document.createElement("div");
+  divRange.setAttribute("class", "ranges");
 
-  let share = document.createElement("form");
-  share.className = "gossip";
-  document.body.appendChild(share);
-  let textarea = document.createElement("textarea");
-  textarea.setAttribute("placeholder", "Got a gossip to share?");
-  share.appendChild(textarea);
-  let button = document.createElement("button");
-  button.innerHTML = "Share gossip!";
-  share.appendChild(button);
-  button.addEventListener("click", function () {
-    let val = textarea.value;
-    let goss1 = document.createElement("div");
-    goss1.className = "gossip";
-    goss1.textContent = val;
-    document.body.insertBefore(goss1, document.querySelectorAll(".gossip")[1]);
-    textarea.value = "";
+  for (let i = 0; i < 3; i++) {
+    let inputRange = document.createElement("input");
+    inputRange.setAttribute("type", "range");
+
+    if (i == 0) {
+      inputRange.setAttribute("id", "width");
+      inputRange.setAttribute("min", "200");
+      inputRange.setAttribute("max", "800");
+
+      inputRange.addEventListener("input", () => {
+        let a = document.getElementsByClassName("gossip");
+
+        for (let i = 0; i < a.length; i++) {
+          a[i].setAttribute(
+            "style",
+            "width:" + inputRange.value.toString() + "px"
+          );
+        }
+      });
+    } else if (i == 1) {
+      inputRange.setAttribute("id", "fontSize");
+      inputRange.setAttribute("min", "20");
+      inputRange.setAttribute("max", "40");
+
+      inputRange.addEventListener("input", () => {
+        let a = document.getElementsByClassName("gossip");
+
+        for (let i = 0; i < a.length; i++) {
+          a[i].setAttribute(
+            "style",
+            "font-size:" + inputRange.value.toString() + "px"
+          );
+        }
+      });
+    } else if (i == 2) {
+      inputRange.setAttribute("id", "background");
+      inputRange.setAttribute("min", "20");
+      inputRange.setAttribute("max", "75");
+
+      inputRange.addEventListener("input", () => {
+        let a = document.getElementsByClassName("gossip");
+
+        for (let i = 0; i < a.length; i++) {
+          a[i].setAttribute(
+            "style",
+            "background:" + "hsl(280,50%," + inputRange.value.toString() + "%)"
+          );
+        }
+      });
+    }
+
+    divRange.append(inputRange);
+  }
+
+  body.append(divRange);
+}
+
+function createForm() {
+  let body = document.querySelector("body");
+  let elementForm = document.createElement("form");
+  let elementTextArea = document.createElement("textarea");
+  let elementButton = document.createElement("button");
+
+  elementForm.setAttribute("class", "gossip");
+  elementButton.innerText = "Share gossip!";
+
+  elementButton.addEventListener("click", () => {
+    let elDiv = document.createElement("div");
+    elDiv.setAttribute("class", "gossip");
+    elDiv.innerText = elementTextArea.value;
+    insertAfter(elementForm, elDiv);
+    elementTextArea.value = "";
     event.preventDefault();
   });
-  addGross(gossips);
+
+  elementForm.append(elementTextArea, elementButton);
+  body.append(elementForm);
 }
-function addGross(goss) {
-  goss.forEach((elem) => {
-    let goss = document.createElement("div");
-    goss.className = "gossip";
-    goss.innerHTML = elem;
-    document.body.appendChild(goss);
-  });
+
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
