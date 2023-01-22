@@ -14,6 +14,7 @@
 // Each <div> must have the corresponding generated class and display the name of the color, like following:
 
 // <div class="blue">blue</div>
+
 // The function choseShade is triggered when clicking on a div. Write the body of this function.
 // It accepts the shade of the clicked element as an argument, and replaces all the classes of all the other elements by the chosen shade.
 
@@ -38,13 +39,13 @@
 
 import { colors } from "./fifty-shades-of-cold.data.js";
 export function generateClasses() {
-  let styl = document.createElement("style");
+  let style = document.createElement("style");
   colors.forEach((color) => {
-    styl.innerHTML += `.${color} {
+    style.innerHTML += `.${color} {
  background: ${color};
  }`;
   });
-  document.head.appendChild(styl);
+  document.head.appendChild(style);
 }
 export function generateColdShades() {
   colors.forEach((color) => {
