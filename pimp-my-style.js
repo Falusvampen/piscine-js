@@ -54,8 +54,9 @@ export function pimp() {
   } else {
     if (click == 14) {
       button.classList.add(styles[click], "unpimp");
+    } else {
+      button.classList.add(styles[click]);
     }
-    button.classList.add(styles[click]);
     click++;
   }
 }
