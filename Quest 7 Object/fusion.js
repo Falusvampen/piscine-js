@@ -31,38 +31,19 @@
 // In case of type mismatch you must replace it with the value of the second object (if it exists).
 // fusion({ a: "hello", b: [] }, { a: 4 }); // -> { a: 4, b: [] }
 
-function fusion(obj1, obj2) {
-  const newObj = {};
-  for (const key in obj1) {
-    if (obj2.hasOwnProperty(key)) {
-      if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
-        newObj[key] = obj1[key].concat(obj2[key]);
-      } else if (
-        typeof obj1[key] === "string" &&
-        typeof obj2[key] === "string"
-      ) {
-        newObj[key] = obj1[key] + " " + obj2[key];
-      } else if (
-        typeof obj1[key] === "number" &&
-        typeof obj2[key] === "number"
-      ) {
-        newObj[key] = obj1[key] + obj2[key];
-      } else if (
-        typeof obj1[key] === "object" &&
-        typeof obj2[key] === "object"
-      ) {
-        newObj[key] = fusion(obj1[key], obj2[key]);
-      } else {
-        newObj[key] = obj2[key];
-      }
-    } else {
-      newObj[key] = obj1[key];
-    }
-  }
-  for (const key in obj2) {
-    if (!newObj.hasOwnProperty(key)) {
-      newObj[key] = obj2[key];
-    }
-  }
-  return newObj;
+function fusion(a, b) {
+  const res = {};
+  Object.keys(a).forEach((key) => {
+    res[key] = a[key];
+  });
+
+  Object.keys(b).forEach((key) => {
+    if (typeof res[key] !== typeof b[key]) res[key] = b[key];
+    else if (Array.isArray(res[key]) && Array.isArray(b[key]))
+      res[key] = res[key].concat(b[key]);
+    else if (typeof res[key] === "string") res[key] += " " + b[key];
+    else if (typeof res[key] === "number") res[key] += b[key];
+    else if (typeof res[key] === "object") res[key] = fusion(res[key], b[key]);
+  });
+  return res;
 }
