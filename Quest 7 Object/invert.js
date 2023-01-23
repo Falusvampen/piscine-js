@@ -4,9 +4,9 @@
 // Notions
 // object
 
-function invert(Object) {
+function invert(myObject) {
   let invertedObject = Object.fromEntries(
-    Object.entries(Object).map(([key, value]) => [value, key])
+    Object.entries(myObject).map(([key, value]) => [value, key])
   );
   return invertedObject;
 }
