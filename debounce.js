@@ -76,6 +76,30 @@ const debounce = (fn, delay) => {
   };
 };
 
+// const opDebounce = (func, time, options) => {: This line defines a new constant variable named
+//   "opDebounce" which is a function that takes three arguments: "func", "time", and "options".
+
+// let timer;: This line declares a variable "timer" which is used to store the timeout ID returned by setTimeout function.
+
+// options === undefined ? (options = { leading: false }) : null;: This line checks if options is undefined,
+// if yes the options will be set to { leading: false }.
+
+// return function (...args) {: This line returns an anonymous function that will be invoked when opDebounce is called.
+//   The function takes in any number of arguments using the spread operator (...args).
+
+// if (!timer && options.leading) func(...args);: This line checks if the "timer" variable is falsy and
+// the "leading" property of the "options" object is truthy. If both conditions are met, the "func" function
+// is called and passed the spread arguments.
+
+// clearTimeout(timer);: This line clears any previous timeout by passing the timeout ID stored in "timer"
+// variable to the clearTimeout function.
+
+// timer = setTimeout(() => func(...args), time);: This line sets a new timeout by calling the setTimeout
+// function and passing in an anonymous function as the first argument. The anonymous function calls the "func"
+// function and passes the spread arguments. The returned timeout ID is stored in the "timer" variable.
+
+// };: This line ends the return function and opDebounce function.
+
 const opDebounce = (func, time, options) => {
   let timer;
   options === undefined ? (options = { leading: false }) : null;
