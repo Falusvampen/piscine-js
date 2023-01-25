@@ -1,4 +1,76 @@
 // notes
+
+
+
+// Debounce is a function that delays the execution of another function until after a certain amount of time has passed.
+// It's useful for preventing a function from being called too frequently.
+// For example, you might use debounce to prevent a user from submitting a form multiple times in a row.
+// The debounce function takes two arguments: the first is the original function that you want to debounce,
+// and the second is the delay in milliseconds. The debounce function returns a new function that can be
+// called in place of the original function.
+// When the new function is called, it clears any existing timer using clearTimeout() and starts a new timer using setTimeout().
+// The original function is called only when the timer expires.
+// If the new function is called again before the timer expires, the timer is reset,
+// and the original function is not called until the new timer expires.
+// You can use the debounced function like this:
+// const debouncedFunction = debounce(yourFunction, 500);
+// This will create a new function debouncedFunction that will call yourFunction only once every 500 milliseconds.
+// It's important to note that debouncing can have its own trade-offs,
+// like it may delay the execution of the function and also it may introduce a delay in the response time of the user interface.
+// clearTimeout() and setTimeout() are two JavaScript functions that are used to control the timing of function execution.
+// setTimeout(func, delay) is a function that schedules a function, func,
+// to be executed after a specified delay, delay, in milliseconds.
+// The function returns a timeout ID, which can be used to cancel the timeout using clearTimeout(timeoutId).
+// clearTimeout(timeoutId) is a function that cancels a scheduled timeout identified by the timeoutId returned by setTimeout().
+// If a timeout with that timeoutId does not exist, the function does nothing.
+// When the time specified in the setTimeout() function elapses, the function passed to setTimeout() is executed once.
+// If the function is called again before the timeout expires, the timeout is reset.
+// This is useful for preventing a function from being called too frequently.
+// For example, you might use setTimeout() to prevent a user from submitting a form multiple times in a row.
+// The setTimeout() function takes two arguments: the first is the function that you want to execute,
+// and the second is the delay in milliseconds. The setTimeout() function returns a timeout ID,
+// which can be used to cancel the timeout using clearTimeout(timeoutId).
+// You can use the setTimeout() function like this:
+// const timeoutId = setTimeout(yourFunction, 500);
+// This will call yourFunction after 500 milliseconds.
+// You can cancel the timeout using clearTimeout(timeoutId).
+// clearTimeout(timeoutId) is a function that cancels a scheduled timeout identified by the timeoutId returned by setTimeout().
+// If a timeout with that timeoutId does not exist, the function does nothing.
+// The clearTimeout() function takes one argument: the timeoutId returned by setTimeout().
+// You can use the clearTimeout() function like this:
+// clearTimeout(timeoutId);
+
+
+// The throttle function takes two arguments: the first is the original function that you want to throttle,
+// and the second is the delay in milliseconds. The throttle function returns a new function that can be called 
+// in place of the original function.
+// When the new function is called, it checks whether the last time the original function was called was more than delay milliseconds ago.
+// If it was, the original function is called and the last time it was called is updated.
+// If it wasn't, the original function is not called.
+// If the new function is called again before the delay has elapsed, the last time it was called is updated,
+// but the original function is not called.
+// You can use the throttled function like this:
+// const throttledFunction = throttle(yourFunction, 500);
+// This will create a new function throttledFunction that will call yourFunction at most once every 500 milliseconds.
+// It's important to note that throttling can have its own trade-offs,
+// like it may delay the execution of the function and also it may introduce a delay in the response time of the user interface.
+// The throttle function takes two arguments: the first is the original function that you want to throttle,
+// and the second is the delay in milliseconds. The throttle function returns a new function that can be called
+// in place of the original function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // createElement: A method of the Document object that creates a new element with the specified name.
 // append: A method of the Element object that adds a child element to the end of the element's children.
 // Element: An object representing an element in an HTML or XML document.
@@ -82,6 +154,9 @@
 // For example, you might use setTimeout() to schedule a function that updates the position of an element on the
 // screen every 100 milliseconds, and use clearTimeout() to stop the animation when the user navigates to a
 // different page or when the animation reaches the end.
+
+
+
 
 //                                                 CURRYING
 // ------------------------------------------------------------------------------------------------------------------------------
