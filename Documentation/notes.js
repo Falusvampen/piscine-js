@@ -61,6 +61,28 @@
 
 // padEnd: A method of the String object that pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. The padding is applied from the end (right) of the current string.
 
+// clearTimeout() and setTimeout() are two JavaScript functions that are used to control the timing of function execution.
+
+// setTimeout(func, delay) is a function that schedules a function, func,
+// to be executed after a specified delay, delay, in milliseconds.
+// The function returns a timeout ID, which can be used to cancel the timeout using clearTimeout(timeoutId).
+
+// clearTimeout(timeoutId) is a function that cancels a scheduled timeout identified by the timeoutId returned by setTimeout().
+// If a timeout with that timeoutId does not exist, the function does nothing.
+
+// When the time specified in the setTimeout() function elapses, the function passed to setTimeout() is executed once.
+
+// You can use setTimeout() to schedule a function to be executed after a certain amount of time has passed.
+// This can be useful for creating timed events, such as animations, or for delaying the execution of a function to
+// improve performance or to prevent a function from being called too frequently.
+
+// clearTimeout() is used to cancel a scheduled timeout before it's executed,
+// it's useful to stop the execution of a function that was scheduled with setTimeout() but it's not needed anymore.
+
+// For example, you might use setTimeout() to schedule a function that updates the position of an element on the
+// screen every 100 milliseconds, and use clearTimeout() to stop the animation when the user navigates to a
+// different page or when the animation reaches the end.
+
 //                                                 CURRYING
 // ------------------------------------------------------------------------------------------------------------------------------
 
@@ -100,7 +122,6 @@
 // languages automatically curry all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the curried form, which is the case with functions that take a variable number of arguments.
 
-
 //                                                 COMPOSITION
 // ------------------------------------------------------------------------------------------------------------------------------
 // Composition is a functional programming technique that involves combining two or more functions
@@ -137,7 +158,6 @@
 // languages automatically compose all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the composed form, which is the case with functions that take a variable number of arguments.
 
-
 //                                                 RECURSION
 // ------------------------------------------------------------------------------------------------------------------------------
 // Recursion is a programming technique that involves a function calling itself directly or indirectly.
@@ -165,7 +185,6 @@
 // It's also important to note that not every function can be recursed, and not all functional programming
 // languages automatically recurse all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the recursed form, which is the case with functions that take a variable number of arguments.
-
 
 //                                                 HIGHER-ORDER FUNCTIONS
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -203,7 +222,6 @@
 // languages automatically higher-order all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the higher-ordered form, which is the case with functions that take a variable number of arguments.
 
-
 //                                                 IMMUTABILITY
 // ------------------------------------------------------------------------------------------------------------------------------
 // Immutability is a functional programming technique that involves creating new data instead of modifying existing data.
@@ -232,7 +250,6 @@
 // languages automatically immutable all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the immutable form, which is the case with functions that take a variable number of arguments.
 
-
 //                                                 PURE FUNCTIONS
 // ------------------------------------------------------------------------------------------------------------------------------
 // A pure function is a function that has no side effects and always returns the same result given the same arguments.
@@ -256,7 +273,6 @@
 // It's also important to note that not every function can be pure, and not all functional programming
 // languages automatically pure all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the pure form, which is the case with functions that take a variable number of arguments.
-
 
 //                                                 FUNCTIONAL PROGRAMMING
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -290,7 +306,6 @@
 // It's also important to note that not every function can be functional programming, and not all functional programming
 // languages automatically functional programming all functions. Some functions may have an arity (number of expected arguments)
 // that cannot be expressed in the functional programming form, which is the case with functions that take a variable number of arguments.
-
 
 //                                                 OBJECT-ORIENTED PROGRAMMING
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -331,7 +346,6 @@
 // It's also important to note that not every object can be object-oriented programming, and not all object-oriented programming
 // languages automatically object-oriented programming all objects. Some objects may have an arity (number of expected arguments)
 // that cannot be expressed in the object-oriented programming form, which is the case with objects that take a variable number of arguments.
-
 
 //                                                 FUNCTIONAL PROGRAMMING VS. OBJECT-ORIENTED PROGRAMMING
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -386,5 +400,3 @@
 // It's also important to note that not every function and object can be functional programming, and not all functional programming
 // languages automatically functional programming all functions and objects. Some functions and objects may have an arity (number of expected arguments)
 // that cannot be expressed in the functional programming form, which is the case with functions and objects that take a variable number of arguments.
-
-
